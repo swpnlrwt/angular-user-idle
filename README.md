@@ -1,19 +1,14 @@
 # angular-user-idle
 
-Service for Angular 6 to detect and control of user's idle.
+Service for Angular 5+ to detect and control of user's idle.
 
 [![npm version](https://badge.fury.io/js/angular-user-idle.svg)](https://badge.fury.io/js/angular-user-idle)
 
 ## Important
-This library was written for needs of my corporate project and this library compiles and works (Angular 6) very well and as I expected.
+This library was written for needs of my corporate project and this library compiles and works (Angular 5 + Webpack 3.8) very well and as I expected.
 Unfortunately, I don't have necessary time to maintenance my library as fast as you can expected.
 I have a plan to review my code to try to fix a bugs that was reported by other users but I don't know when I do it.
 Thank for your understanding.
-
-**To use this library in Angular 5.x use angular-user-idle ver. 1.1.0.**
-
-#### Demo
-[angular-user-idle.rednez.com](http://angular-user-idle.rednez.com)
 
 ### Installation
 
@@ -91,22 +86,6 @@ export class LoginComponent implements OnInit {
   }
 }
 ```
-
-##### About _ping_
-Please note that ping is used if you want to perform some action periodically every _n_-minutes in lifecycle of timer 
-(from start timer to timeout). 
-
-For example, if you want to make a request to refresh token every 2 minutes you set ping to 120 and subscribe to ping's 
-observable like this:
-```typescript
-this.idle.ping$.subscribe(() => console.log("PING"));
-```
-The main schema will be as follow:
-
-`|–– 2m (ping)––4m (ping) ––6m (ping)...-– 10m (user idle detected, start timer for 5 min) –- 12m (ping) –– 14m (ping) –– 15m (time is out)|`
-
-If you don't use a ping just set ping to any value (not null) and just ignore it.
-
 ### API
 `startWatching(): void;`
 
@@ -132,9 +111,8 @@ Reset timer after onTimeout() has been fired.
 
 Stop user idle service.
 
-`setConfigValues({idle, timeout, ping})`
+`startWatching()`
 
-Set config values after module was initialized.
 
 ##### Service logic:
 - User is inactive for 10 minutes

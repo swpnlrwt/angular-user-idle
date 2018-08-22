@@ -1,11 +1,3 @@
-## 2.0.0
-- Replace rollup by Angular CLI 6 bundling.
-- Migrate to Angular 6 core anf RxJS 6.
-- Extend API by method setConfigValues({idle, timeout, ping}).
-- Add demo app. Check by [angular-user-idle.rednez.com](http://angular-user-idle.rednez.com).
-
-**BREAKING CHANGES**: To use this library you need to upgrade your dependencies to Angular 6 and RxJS 6.
-
 ## 1.1.0
 - Include ts-sources in _dist_ to fix crashing on AOT (close #2, #3). 
 Thanks to [costaivo](https://github.com/costaivo).
